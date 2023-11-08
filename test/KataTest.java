@@ -15,5 +15,7 @@ public class KataTest {
         doTest("foo1", "foo2");
         doTest("foo4", "foo5");
         doTest("foo99", "foo100");
+        doTest("foo001", "foo002");
+        doTest("foo0000999", "foo0001000");
     }
 }

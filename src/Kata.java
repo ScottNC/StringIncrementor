@@ -12,8 +12,9 @@ public class Kata {
                 .orElse(-1) + 1;
 
         if (finalLetterIndex != str.length()) {
-            int num = parseInt(str.substring(finalLetterIndex));
-            return str.substring(0, finalLetterIndex) + (num + 1);
+            String newNum = String.valueOf(parseInt(str.substring(finalLetterIndex)) + 1);
+            int zeros = str.length() - finalLetterIndex - newNum.length();
+            return str.substring(0, finalLetterIndex) + "0".repeat(Math.max(zeros, 0)) + newNum;
         } else return str + 1;
     }
 
