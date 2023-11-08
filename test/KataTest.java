@@ -18,4 +18,9 @@ public class KataTest {
         doTest("foo001", "foo002");
         doTest("foo0000999", "foo0001000");
     }
+
+    @Test
+    public void largeNumbers() {
+        doTest("aaaaaaaaaaaaaa923676545678123456", "aaaaaaaaaaaaaa923676545678123457");
+    }
 }
