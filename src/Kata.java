@@ -1,17 +1,23 @@
+import java.util.stream.IntStream;
+
 import static java.lang.Integer.parseInt;
 
 public class Kata {
 
     public static String incrementString(String str) {
 
-        String endStr = str.substring(str.length() - 1);
+        int finalLetterIndex = IntStream.range(0, str.length())
+                .filter(i -> isNotNumberString(str.charAt(i)))
+                .reduce((first, second) -> second)
+                .orElse(-1) + 1;
 
-        if (isNumberString(endStr)) {
-            return str.substring(0, str.length() - 1) + (parseInt(endStr) + 1);
+        if (finalLetterIndex != str.length()) {
+            int num = parseInt(str.substring(finalLetterIndex));
+            return str.substring(0, finalLetterIndex) + (num + 1);
         } else return str + 1;
     }
 
-    public static boolean isNumberString (String s) {
-        return s.matches("-?\\d+(\\.\\d+)?");
+    public static boolean isNotNumberString (char c) {
+        return !String.valueOf(c).matches("-?\\d+(\\.\\d+)?");
     }
 }
