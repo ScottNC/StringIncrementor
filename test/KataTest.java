@@ -12,6 +12,7 @@ public class KataTest {
     @Test
     public void incrementString() {
         doTest("", "1");
+        doTest("999", "1000");
         doTest("foo", "foo1");
         doTest("foo1", "foo2");
         doTest("foo4", "foo5");

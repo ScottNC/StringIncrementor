@@ -8,12 +8,14 @@ public class Kata {
     }
 
     public static String replaceCharacter (String str, int index) {
+        if (index < 0)
+            return "1" + str.substring(index + 1);
+
         char c = str.charAt(index);
 
-        if (c == '9')
-            return replaceCharacter(str.substring(0, index) + "0" + str.substring(index + 1), index - 1);
-
         if (isNumberString(c)) {
+            if (c == '9')
+                return replaceCharacter(str.substring(0, index) + "0" + str.substring(index + 1), index - 1);
             return str.substring(0, index) + (parseInt(String.valueOf(c)) + 1) + str.substring(index + 1);
         }
 
