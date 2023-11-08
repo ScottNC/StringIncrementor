@@ -3,6 +3,7 @@ import static java.lang.Integer.parseInt;
 public class Kata {
 
     public static String incrementString(String str) {
+        if (str.isEmpty()) return "1";
         return replaceCharacter(str, str.length() - 1);
     }
 
